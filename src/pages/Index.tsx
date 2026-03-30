@@ -3,7 +3,7 @@ import { apiGroups, apiSections } from "@/data/apiEndpoints";
 import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
-import { Shield, FileJson, Menu, X } from "lucide-react";
+import { Shield, FileJson, Menu, X, PanelLeftClose, PanelLeft } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Index = () => {
