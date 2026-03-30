@@ -43,10 +43,16 @@ export const EndpointCard = ({ endpoint }: { endpoint: ApiEndpoint }) => {
             className={`w-4 h-4 text-muted-foreground transition-transform flex-shrink-0 ${expanded ? "rotate-180" : ""}`}
           />
         </div>
-        <p className="text-xs text-muted-foreground pl-[60px] leading-relaxed line-clamp-2">
-          {endpoint.summary}
-          {endpoint.description ? ` — ${endpoint.description}` : ""}
-        </p>
+        <div className="pl-[60px] space-y-1">
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            <strong className="text-foreground">O que faz?</strong>{" "}
+            {endpoint.whatItDoes || endpoint.summary}
+          </p>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            <strong className="text-foreground">Qual a motivação?</strong>{" "}
+            {endpoint.motivation || endpoint.description}
+          </p>
+        </div>
       </button>
 
       {expanded && (
