@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { apiGroups } from "@/data/apiEndpoints";
+import { apiGroups, apiSections } from "@/data/apiEndpoints";
 import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
@@ -55,6 +55,7 @@ const Index = () => {
       <div className={`fixed inset-y-0 left-0 z-40 lg:relative lg:block ${sidebarOpen ? "block" : "hidden lg:block"}`}>
         <ApiSidebar
           groups={apiGroups}
+          sections={apiSections}
           activeTag={activeTag}
           onSelectTag={(tag) => { setActiveTag(tag); setSidebarOpen(false); }}
           searchQuery={searchQuery}
