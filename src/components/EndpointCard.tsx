@@ -51,13 +51,6 @@ export const EndpointCard = ({ endpoint }: { endpoint: ApiEndpoint }) => {
 
       {expanded && (
         <div className="border-t border-border px-4 pb-4 pt-3 space-y-4">
-          {/* Summary & Description */}
-          <div>
-            <h4 className="text-sm font-semibold text-foreground">{endpoint.summary}</h4>
-            {endpoint.description && (
-              <p className="text-sm text-muted-foreground mt-1">{endpoint.description}</p>
-            )}
-          </div>
 
           {/* Auth info */}
           {endpoint.requiresAuth && (
