@@ -85,6 +85,13 @@ const Index = () => {
       <main className="flex-1 min-w-0">
         {/* Top bar with logo */}
         <div className="border-b border-border bg-card px-6 lg:px-10 py-4 flex items-center gap-4">
+          <button
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className="hidden lg:flex items-center justify-center p-2 rounded-md hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+            title={sidebarCollapsed ? "Abrir menu" : "Fechar menu"}
+          >
+            {sidebarCollapsed ? <PanelLeft className="w-5 h-5" /> : <PanelLeftClose className="w-5 h-5" />}
+          </button>
           <img src={logo} alt="CustomApps" width={72} height={72} className="rounded-lg" />
           <div>
             <h1 className="text-xl lg:text-2xl font-bold text-foreground">CustomApps</h1>
