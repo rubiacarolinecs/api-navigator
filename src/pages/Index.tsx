@@ -4,6 +4,7 @@ import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
 import { Shield, Zap, FileJson, Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
@@ -68,14 +69,24 @@ const Index = () => {
 
       {/* Main */}
       <main className="flex-1 min-w-0">
+        {/* Top bar with logo */}
+        <div className="border-b border-border bg-card px-6 lg:px-10 py-4 flex items-center gap-4">
+          <img src={logo} alt="CustomApps" width={40} height={40} className="rounded-lg" />
+          <div>
+            <h1 className="text-xl lg:text-2xl font-bold text-foreground">CustomApps</h1>
+            <span className="text-[11px] text-muted-foreground font-mono">API Documentation</span>
+          </div>
+        </div>
+
         {/* Hero */}
-        <div className="border-b border-border bg-card px-6 lg:px-10 py-10">
-          <h1 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">
-            Documentação da API
-          </h1>
-          <p className="text-muted-foreground text-sm max-w-2xl mb-6">
-            Referência completa de todos os endpoints disponíveis na plataforma Custom-Apps. 
-            Explore as categorias na sidebar, pesquise endpoints e veja exemplos de uso.
+        <div className="border-b border-border bg-card px-6 lg:px-10 py-8">
+          <h2 className="text-lg font-semibold text-foreground mb-2">Sobre a iniciativa</h2>
+          <p className="text-muted-foreground text-sm max-w-3xl mb-6 leading-relaxed">
+            A plataforma <strong className="text-foreground">CustomApps</strong> nasceu para ir além do core do produto — 
+            oferecendo aplicações e serviços complementares que aceleram a celebração de novos negócios. 
+            Aqui, extensões de recursos e integrações com o motor de fluxos podem ser construídas com 
+            autonomia, agilidade e governança independente, sem depender do ciclo padrão de desenvolvimento. 
+            Explore abaixo todos os endpoints disponíveis.
           </p>
 
           {/* Stats */}
