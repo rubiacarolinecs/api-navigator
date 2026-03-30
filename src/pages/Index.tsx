@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { apiGroups } from "@/data/apiEndpoints";
+import { apiGroups, apiSections } from "@/data/apiEndpoints";
 import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
