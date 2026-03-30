@@ -3,13 +3,14 @@ import { apiGroups, apiSections } from "@/data/apiEndpoints";
 import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
-import { Shield, FileJson, Menu, X } from "lucide-react";
+import { Shield, FileJson, Menu, X, PanelLeftClose, PanelLeft } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Index = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const filteredGroups = useMemo(() => {
     const q = searchQuery.toLowerCase();
@@ -51,8 +52,20 @@ const Index = () => {
         {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </button>
 
-      {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-40 lg:relative lg:block ${sidebarOpen ? "block" : "hidden lg:block"}`}>
+      {/* Sidebar - Desktop */}
+      <div className={`hidden lg:block transition-all duration-300 ${sidebarCollapsed ? "w-0 overflow-hidden" : ""}`}>
+        <ApiSidebar
+          groups={apiGroups}
+          sections={apiSections}
+          activeTag={activeTag}
+          onSelectTag={(tag) => { setActiveTag(tag); setSidebarOpen(false); }}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+        />
+      </div>
+
+      {/* Sidebar - Mobile */}
+      <div className={`fixed inset-y-0 left-0 z-40 lg:hidden ${sidebarOpen ? "block" : "hidden"}`}>
         <ApiSidebar
           groups={apiGroups}
           sections={apiSections}
@@ -72,6 +85,13 @@ const Index = () => {
       <main className="flex-1 min-w-0">
         {/* Top bar with logo */}
         <div className="border-b border-border bg-card px-6 lg:px-10 py-4 flex items-center gap-4">
+          <button
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className="hidden lg:flex items-center justify-center p-2 rounded-md hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+            title={sidebarCollapsed ? "Abrir menu" : "Fechar menu"}
+          >
+            {sidebarCollapsed ? <PanelLeft className="w-5 h-5" /> : <PanelLeftClose className="w-5 h-5" />}
+          </button>
           <img src={logo} alt="CustomApps" width={72} height={72} className="rounded-lg" />
           <div>
             <h1 className="text-xl lg:text-2xl font-bold text-foreground">CustomApps</h1>
