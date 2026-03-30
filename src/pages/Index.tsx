@@ -109,7 +109,7 @@ const Index = () => {
 
         {/* Auth guide */}
         <div className="px-6 lg:px-10 py-6 border-b border-border">
-          <div className="border border-primary/30 bg-primary/5 rounded-lg p-5 max-w-3xl">
+          <div className="border border-yellow-500/40 bg-yellow-50 dark:bg-yellow-500/10 rounded-lg p-5 max-w-3xl">
             <h3 className="text-sm font-semibold text-foreground mb-2">🔐 Autenticação</h3>
             <p className="text-xs text-muted-foreground mb-3">
               A maioria dos endpoints requer autenticação via Bearer Token. Inclua o seguinte header em suas requisições:
