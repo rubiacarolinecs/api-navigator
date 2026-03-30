@@ -31,27 +31,26 @@ export const EndpointCard = ({ endpoint }: { endpoint: ApiEndpoint }) => {
     <div className="group border border-border rounded-lg bg-card transition-all hover:shadow-md hover:border-primary/20">
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center gap-3 p-4 text-left"
+        className="w-full flex flex-col gap-1.5 p-4 text-left"
       >
-        <MethodBadge method={endpoint.method} />
-        <code className="font-mono text-sm text-foreground flex-1 truncate">{endpoint.path}</code>
-        {endpoint.requiresAuth && (
-          <Lock className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
-        )}
-        <ChevronDown
-          className={`w-4 h-4 text-muted-foreground transition-transform flex-shrink-0 ${expanded ? "rotate-180" : ""}`}
-        />
+        <div className="flex items-center gap-3 w-full">
+          <MethodBadge method={endpoint.method} />
+          <code className="font-mono text-sm text-foreground flex-1 truncate">{endpoint.path}</code>
+          {endpoint.requiresAuth && (
+            <Lock className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
+          )}
+          <ChevronDown
+            className={`w-4 h-4 text-muted-foreground transition-transform flex-shrink-0 ${expanded ? "rotate-180" : ""}`}
+          />
+        </div>
+        <p className="text-xs text-muted-foreground pl-[60px] leading-relaxed line-clamp-2">
+          {endpoint.summary}
+          {endpoint.description ? ` — ${endpoint.description}` : ""}
+        </p>
       </button>
 
       {expanded && (
         <div className="border-t border-border px-4 pb-4 pt-3 space-y-4">
-          {/* Summary & Description */}
-          <div>
-            <h4 className="text-sm font-semibold text-foreground">{endpoint.summary}</h4>
-            {endpoint.description && (
-              <p className="text-sm text-muted-foreground mt-1">{endpoint.description}</p>
-            )}
-          </div>
 
           {/* Auth info */}
           {endpoint.requiresAuth && (
