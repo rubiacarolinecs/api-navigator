@@ -98,10 +98,6 @@ const Index = () => {
               <Shield className="w-3.5 h-3.5 text-primary" />
               <span className="text-muted-foreground">{apiGroups.length} categorias</span>
             </div>
-            <div className="flex items-center gap-2 bg-muted/50 rounded-lg px-3 py-2 text-xs">
-              <Zap className="w-3.5 h-3.5 text-primary" />
-              <span className="text-muted-foreground">OpenAPI 3.0</span>
-            </div>
             {Object.entries(methodCounts).filter(([,c]) => c > 0).map(([m, c]) => (
               <div key={m} className="flex items-center gap-1.5 text-xs">
                 <MethodBadge method={m} />
