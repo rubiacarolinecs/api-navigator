@@ -80,7 +80,6 @@ const Index = () => {
 
         {/* Hero */}
         <div className="border-b border-border bg-card px-6 lg:px-10 py-8">
-          <h2 className="text-lg font-semibold text-foreground mb-2">Sobre a iniciativa</h2>
           <p className="text-muted-foreground text-sm max-w-3xl mb-6 leading-relaxed">
             A plataforma <strong className="text-foreground">CustomApps</strong> nasceu para ir além do core do produto — 
             oferecendo aplicações e serviços complementares que aceleram a celebração de novos negócios. 
