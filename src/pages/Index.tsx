@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const Index = () => {
+  const { user, logout } = useAuth();
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
