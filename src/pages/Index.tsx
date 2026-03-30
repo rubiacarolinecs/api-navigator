@@ -3,7 +3,7 @@ import { apiGroups } from "@/data/apiEndpoints";
 import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
-import { Shield, Zap, FileJson, Menu, X } from "lucide-react";
+import { Shield, FileJson, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Index = () => {
@@ -80,7 +80,6 @@ const Index = () => {
 
         {/* Hero */}
         <div className="border-b border-border bg-card px-6 lg:px-10 py-8">
-          <h2 className="text-lg font-semibold text-foreground mb-2">Sobre a iniciativa</h2>
           <p className="text-muted-foreground text-sm max-w-3xl mb-6 leading-relaxed">
             A plataforma <strong className="text-foreground">CustomApps</strong> nasceu para ir além do core do produto — 
             oferecendo aplicações e serviços complementares que aceleram a celebração de novos negócios. 
@@ -98,10 +97,6 @@ const Index = () => {
             <div className="flex items-center gap-2 bg-muted/50 rounded-lg px-3 py-2 text-xs">
               <Shield className="w-3.5 h-3.5 text-primary" />
               <span className="text-muted-foreground">{apiGroups.length} categorias</span>
-            </div>
-            <div className="flex items-center gap-2 bg-muted/50 rounded-lg px-3 py-2 text-xs">
-              <Zap className="w-3.5 h-3.5 text-primary" />
-              <span className="text-muted-foreground">OpenAPI 3.0</span>
             </div>
             {Object.entries(methodCounts).filter(([,c]) => c > 0).map(([m, c]) => (
               <div key={m} className="flex items-center gap-1.5 text-xs">
