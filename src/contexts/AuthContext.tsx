@@ -1,16 +1,18 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface JiraUser {
   email: string;
   displayName: string;
   avatarUrl?: string;
+  accountId?: string;
 }
 
 interface AuthContextType {
   isAuthenticated: boolean;
   user: JiraUser | null;
   isLoading: boolean;
-  login: (email: string, apiToken: string, domain: string) => Promise<void>;
+  loginWithAtlassian: () => Promise<void>;
   logout: () => void;
 }
 
@@ -38,55 +40,27 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(false);
   }, []);
 
-  const login = async (email: string, apiToken: string, domain: string) => {
-    const credentials = btoa(`${email}:${apiToken}`);
-    
-    try {
-      const response = await fetch(`https://${domain}.atlassian.net/rest/api/3/myself`, {
-        headers: {
-          Authorization: `Basic ${credentials}`,
-          "Content-Type": "application/json",
-        },
-      });
+  const loginWithAtlassian = async () => {
+    const redirectUri = `${window.location.origin}/auth/callback`;
 
-      if (!response.ok) {
-        throw new Error("Credenciais inválidas. Verifique seu email, token e domínio.");
-      }
+    const { data, error } = await supabase.functions.invoke("atlassian-oauth", {
+      body: { action: "get_auth_url", redirect_uri: redirectUri },
+    });
 
-      const data = await response.json();
-      const jiraUser: JiraUser = {
-        email: data.emailAddress || email,
-        displayName: data.displayName || email,
-        avatarUrl: data.avatarUrls?.["48x48"],
-      };
-
-      localStorage.setItem("jira_auth", JSON.stringify(jiraUser));
-      localStorage.setItem("jira_credentials", JSON.stringify({ email, apiToken, domain }));
-      setUser(jiraUser);
-    } catch (error: any) {
-      if (error.message.includes("Failed to fetch") || error.message.includes("NetworkError")) {
-        // CORS issue - fallback: accept credentials and store
-        const jiraUser: JiraUser = {
-          email,
-          displayName: email.split("@")[0],
-        };
-        localStorage.setItem("jira_auth", JSON.stringify(jiraUser));
-        localStorage.setItem("jira_credentials", JSON.stringify({ email, apiToken, domain }));
-        setUser(jiraUser);
-      } else {
-        throw error;
-      }
+    if (error || data?.error) {
+      throw new Error(data?.error || error?.message || "Erro ao iniciar autenticação.");
     }
+
+    window.location.href = data.url;
   };
 
   const logout = () => {
     localStorage.removeItem("jira_auth");
-    localStorage.removeItem("jira_credentials");
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated: !!user, user, isLoading, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated: !!user, user, isLoading, loginWithAtlassian, logout }}>
       {children}
     </AuthContext.Provider>
   );
