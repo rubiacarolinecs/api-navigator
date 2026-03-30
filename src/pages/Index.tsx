@@ -4,6 +4,7 @@ import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
 import { Shield, Zap, FileJson, Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
