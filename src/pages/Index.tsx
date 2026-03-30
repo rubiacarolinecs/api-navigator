@@ -10,6 +10,7 @@ const Index = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const filteredGroups = useMemo(() => {
     const q = searchQuery.toLowerCase();
