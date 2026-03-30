@@ -1,0 +1,303 @@
+export interface ApiEndpoint {
+  path: string;
+  method: string;
+  summary: string;
+  description: string;
+  requiresAuth: boolean;
+}
+
+export interface ApiGroup {
+  tag: string;
+  endpoints: ApiEndpoint[];
+}
+
+export const apiGroups: ApiGroup[] = [
+  { tag: "AMEI", endpoints: [
+      { path: "/amei/listar-horarios-ia", method: "POST", summary: "Lista os horários disponíveis AMEI IA", description: "", requiresAuth: true },
+      { path: "/amei/v2/listar-horarios-ia", method: "POST", summary: "Lista os horários disponíveis AMEI IA", description: "", requiresAuth: true },
+      { path: "/amei/case/createnews", method: "POST", summary: "Cria um novo caso AMEI", description: "", requiresAuth: true },
+      { path: "/amei/dicionario/consultar", method: "POST", summary: "Consulta o dicionário AMEI", description: "", requiresAuth: true },
+      { path: "/amei/v2/dicionario/consultar", method: "POST", summary: "Consulta o dicionário AMEI v2", description: "", requiresAuth: true },
+      { path: "/amei/dicionario/criar", method: "POST", summary: "Cria uma nova entrada no dicionário AMEI", description: "", requiresAuth: true },
+      { path: "/amei/dicionario/editar", method: "PUT", summary: "Edita uma entrada existente no dicionário AMEI", description: "", requiresAuth: true },
+      { path: "/amei/dicionario/remover", method: "DELETE", summary: "Remove uma entrada do dicionário AMEI", description: "", requiresAuth: true },
+      { path: "/amei/dicionario/adicionar-fragmento", method: "PATCH", summary: "Adiciona um fragmento a uma entrada existente no dicionário AMEI", description: "", requiresAuth: true },
+      { path: "/amei/case/listar-agendamentos", method: "POST", summary: "Lista os agendamentos AMEI", description: "", requiresAuth: true },
+      { path: "/amei/case/listar-agendamentos-v2", method: "POST", summary: "Lista os agendamentos AMEI v2", description: "", requiresAuth: true },
+      { path: "/amei/case/listar-propostas", method: "POST", summary: "Lista as propostas AMEI", description: "", requiresAuth: true },
+      { path: "/amei/case/remover-agendamento", method: "DELETE", summary: "Remove um agendamento AMEI", description: "", requiresAuth: true },
+      { path: "/amei/case/remover-proposta", method: "DELETE", summary: "Remove uma proposta AMEI", description: "", requiresAuth: true },
+      { path: "/amei/listar-unidades", method: "POST", summary: "Lista as unidades AMEI", description: "", requiresAuth: true },
+      { path: "/amei/listar-horarios", method: "POST", summary: "Lista os horários disponíveis AMEI", description: "", requiresAuth: true },
+      { path: "/amei/listar-horarios-v2", method: "POST", summary: "Lista os horários disponíveis AMEI v2", description: "", requiresAuth: true },
+      { path: "/amei/listar-horarios-v3", method: "POST", summary: "Lista os horários disponíveis AMEI v3", description: "", requiresAuth: true },
+      { path: "/amei/listar-horarios-v4", method: "POST", summary: "Lista os horários disponíveis AMEI v4", description: "", requiresAuth: true },
+      { path: "/amei/create/unidade", method: "POST", summary: "Cria uma nova unidade AMEI", description: "", requiresAuth: true },
+      { path: "/amei/update/unidade", method: "POST", summary: "Atualiza uma unidade AMEI", description: "", requiresAuth: true },
+      { path: "/amei/delete/unidade", method: "POST", summary: "Deleta uma unidade AMEI", description: "", requiresAuth: true },
+      { path: "/amei/search/unidade", method: "POST", summary: "Busca uma unidade AMEI", description: "", requiresAuth: true },
+      { path: "/amei/v1/listar-erros-agendamentos", method: "GET", summary: "Lista os agendamentos com erros gerais AMEI", description: "", requiresAuth: true },
+      { path: "/amei/v1/listar-erros-propostas", method: "GET", summary: "Lista as propostas com erros gerais AMEI", description: "", requiresAuth: true },
+      { path: "/amei/v1/listar-retestes-agendamentos", method: "GET", summary: "Lista os agendamentos com erros para reteste AMEI", description: "", requiresAuth: true },
+      { path: "/amei/v1/listar-retestes-propostas", method: "GET", summary: "Lista as propostas com erros para reteste AMEI", description: "", requiresAuth: true },
+      { path: "/amei/v3/case/listar-agendamentos", method: "POST", summary: "Lista os agendamentos AMEI v3", description: "", requiresAuth: true },
+      { path: "/amei/v2/case/listar-propostas", method: "POST", summary: "Lista as propostas AMEI v2", description: "", requiresAuth: true },
+      { path: "/amei/v1/reprocessar-agendamentos", method: "POST", summary: "Altera os agendamentos com status de ERRO para ATIVO", description: "", requiresAuth: true },
+      { path: "/amei/v1/reprocessar-propostas", method: "POST", summary: "Altera as propostas com status de ERRO para ATIVO", description: "", requiresAuth: true },
+      { path: "/amei/job/all/start", method: "GET", summary: "Inicia todos os jobs no sistema AMEI", description: "", requiresAuth: true },
+      { path: "/amei/job/all/stop", method: "GET", summary: "Para todos os jobs no sistema AMEI", description: "", requiresAuth: true },
+      { path: "/amei/job/list", method: "GET", summary: "Lista todos os jobs no sistema AMEI", description: "", requiresAuth: true },
+      { path: "/amei/v2/reprocessar-agendamentos", method: "POST", summary: "Altera os agendamentos com status de FALHA para AGUARDANDO", description: "", requiresAuth: true },
+      { path: "/amei/v2/reprocessar-propostas", method: "POST", summary: "Altera as propostas com status de FALHA para AGUARDANDO", description: "", requiresAuth: true },
+      { path: "/amei/v1/listar-falhas-agendamentos", method: "GET", summary: "Lista os agendamentos com falhas gerais AMEI", description: "", requiresAuth: true },
+      { path: "/amei/v1/listar-falhas-propostas", method: "GET", summary: "Lista as propostas com falhas gerais AMEI", description: "", requiresAuth: true },
+      { path: "/amei/listar-horarios-v5", method: "POST", summary: "Lista os horários disponíveis AMEI v5", description: "", requiresAuth: true },
+      { path: "/amei/patient/{id}", method: "POST", summary: "Integra um paciente com o sistema AMEI", description: "", requiresAuth: true },
+  ]},
+  { tag: "Alcans", endpoints: [
+      { path: "/alcans/info", method: "GET", summary: "Busca informações do cliente", description: "", requiresAuth: true },
+  ]},
+  { tag: "Allcare", endpoints: [
+      { path: "/allcare/v1/export-case-detail", method: "GET", summary: "Exporta detalhes do caso", description: "Endpoint para recuperar detalhes de um caso e exporta-lo em pdf.", requiresAuth: true },
+      { path: "/allcare/v1/send-grid", method: "POST", summary: "Recebe eventos do SendGrid", description: "Webhook para receber eventos do SendGrid.", requiresAuth: true },
+      { path: "/allcare/v1/carta-portabilidade", method: "GET", summary: "Exporta detalhes do caso (portabilidade de carência em plano de saúde)", description: "Endpoint para recuperar detalhes de um caso e exporta-lo em json.", requiresAuth: true },
+  ]},
+  { tag: "Ancora", endpoints: [
+      { path: "/ancora/unidades/{cpf}", method: "GET", summary: "Lista as unidades vinculadas a um CPF", description: "", requiresAuth: true },
+      { path: "/ancora/unidade/{cpf}/{index}", method: "GET", summary: "Lista uma unidade específica vinculada a um CPF pelo índice", description: "", requiresAuth: true },
+      { path: "/ancora/cobrancas", method: "GET", summary: "Lista as cobranças das unidades vinculadas ao usuário autenticado", description: "", requiresAuth: true },
+  ]},
+  { tag: "Arcom", endpoints: [
+      { path: "/arcom/{acao}/{empresa}/{cnpj}", method: "GET", summary: "Valida uma ação para uma empresa com base no CNPJ", description: "", requiresAuth: true },
+  ]},
+  { tag: "Banco Pan", endpoints: [
+      { path: "/bancopan/consultar-proposta", method: "GET", summary: "Consulta uma proposta do Banco Pan", description: "", requiresAuth: true },
+      { path: "/bancopan/consultar-proposta-hml", method: "GET", summary: "Consulta uma proposta do Banco Pan (Ambiente de Homologação)", description: "", requiresAuth: true },
+  ]},
+  { tag: "Bourboun", endpoints: [
+      { path: "/bourboun/cliente/{document}", method: "GET", summary: "Obtém informações do cliente Bourboun com base no documento", description: "", requiresAuth: true },
+  ]},
+  { tag: "Cassems", endpoints: [
+      { path: "/cassems/v1/atendimento", method: "POST", summary: "Consulta atendimentos no sistema CASSEMS", description: "", requiresAuth: true },
+  ]},
+  { tag: "CheckUp", endpoints: [
+      { path: "/checkup/atendimentos/{pacienteId}", method: "POST", summary: "Recupera consultas para um paciente", description: "Endpoint para recuperar consultas de um paciente específico.", requiresAuth: true },
+      { path: "/checkup/procedimento/{procedimentoId}", method: "POST", summary: "Recupera detalhes do procedimento", description: "Endpoint para recuperar detalhes de um procedimento de verificação específico.", requiresAuth: true },
+      { path: "/checkup/v2/procedimento/{procedimentoId}", method: "POST", summary: "Recupera detalhes do procedimento (v2)", description: "Endpoint para recuperar detalhes de um procedimento de verificação específico (v2).", requiresAuth: true },
+  ]},
+  { tag: "Cogna", endpoints: [
+      { path: "/cogna", method: "POST", summary: "Registra um novo usuário no sistema Cogna", description: "", requiresAuth: true },
+      { path: "/cogna/cursos", method: "GET", summary: "Lista os cursos disponíveis no sistema Cogna", description: "", requiresAuth: true },
+      { path: "/cogna/modalidades", method: "GET", summary: "Lista as modalidades disponíveis no sistema Cogna", description: "", requiresAuth: true },
+      { path: "/cogna/unidades", method: "GET", summary: "Lista as unidades disponíveis no sistema Cogna", description: "", requiresAuth: true },
+      { path: "/cogna/turnos", method: "GET", summary: "Lista os turnos disponíveis no sistema Cogna", description: "", requiresAuth: true },
+      { path: "/cogna/validaModalidade", method: "GET", summary: "Valida uma modalidade no sistema Cogna", description: "", requiresAuth: true },
+      { path: "/cogna/validaUnidade", method: "GET", summary: "Valida uma unidade no sistema Cogna", description: "", requiresAuth: true },
+      { path: "/cogna/validaTurno", method: "GET", summary: "Valida um turno no sistema Cogna", description: "", requiresAuth: true },
+  ]},
+  { tag: "Costa Brava", endpoints: [
+      { path: "/costabrava/profile", method: "POST", summary: "Registra um novo perfil no sistema Costa Brava", description: "", requiresAuth: true },
+      { path: "/costabrava/listas", method: "POST", summary: "Obtém listas do sistema Costa Brava", description: "", requiresAuth: true },
+      { path: "/costabrava/obter-pedido", method: "POST", summary: "Obtém um pedido do sistema Costa Brava", description: "", requiresAuth: true },
+      { path: "/costabrava/respostas-questionario", method: "POST", summary: "Obtém respostas de um questionário do sistema Costa Brava", description: "", requiresAuth: true },
+      { path: "/costabrava/listar-profiles", method: "GET", summary: "Lista todos os profiles do sistema Costa Brava", description: "", requiresAuth: true },
+      { path: "/costabrava/listar-novos-profiles", method: "GET", summary: "Lista novos profiles do sistema Costa Brava", description: "", requiresAuth: true },
+      { path: "/costabrava/listar-profiles-atualizados", method: "GET", summary: "Lista profiles atualizados do sistema Costa Brava", description: "", requiresAuth: true },
+      { path: "/costabrava/obter-email", method: "POST", summary: "Obtém o conteúdo de um e-mail do sistema Costa Brava", description: "", requiresAuth: true },
+      { path: "/costabrava/v2/profile", method: "POST", summary: "Registra um novo perfil no sistema Costa Brava", description: "", requiresAuth: true },
+  ]},
+  { tag: "Credz", endpoints: [
+      { path: "/credz/v1/find-call", method: "POST", summary: "Consultar informações de chamadas (URA)", description: "", requiresAuth: true },
+      { path: "/credz/v1/run-api", method: "POST", summary: "Rota generica para execução de API's da Credz", description: "", requiresAuth: true },
+      { path: "/credz/v1/run-api-hml", method: "POST", summary: "Rota generica para execução de API's da Credz em ambiente HML", description: "", requiresAuth: true },
+      { path: "/credz/v1/run-edoc", method: "POST", summary: "Rota generica para execução de API's da Exímia", description: "", requiresAuth: true },
+  ]},
+  { tag: "DialogFlow", endpoints: [
+      { path: "/intentand", method: "POST", summary: "Processa uma intenção no Dialogflow", description: "", requiresAuth: true },
+  ]},
+  { tag: "ElevenLabs", endpoints: [
+      { path: "/eleven/tts", method: "POST", summary: "Converte texto em fala usando o OpenAI/Googe Gemini/Eleven Labs", description: "", requiresAuth: true },
+  ]},
+  { tag: "Evaluate", endpoints: [
+      { path: "/functions/evaluate", method: "POST", summary: "Avalia uma função", description: "", requiresAuth: true },
+      { path: "/functions/v2/evaluate", method: "POST", summary: "Avalia uma função na versão 2", description: "", requiresAuth: true },
+  ]},
+  { tag: "Flows", endpoints: [
+      { path: "/flows/amei/{unidadeId}/webhook", method: "POST", summary: "Endpoint para receber os webhooks de flows da Amei", description: "", requiresAuth: false },
+  ]},
+  { tag: "Functions", endpoints: [
+      { path: "/functions/validarcpf", method: "POST", summary: "Valida um CPF", description: "", requiresAuth: true },
+      { path: "/functions/validarcnpj", method: "POST", summary: "Valida um CNPJ", description: "", requiresAuth: true },
+      { path: "/functions/cartao", method: "POST", summary: "Valida um número de cartão de crédito", description: "", requiresAuth: true },
+      { path: "/functions/buscarcep/{cep}", method: "GET", summary: "Busca informações de um CEP", description: "", requiresAuth: true },
+      { path: "/functions/cep/{cep}", method: "GET", summary: "Obtém informações detalhadas de um CEP", description: "", requiresAuth: true },
+      { path: "/functions/geo/{cep}", method: "GET", summary: "Obtém a geolocalização de um CEP", description: "", requiresAuth: true },
+      { path: "/functions/extrair-lista", method: "POST", summary: "Extrai uma lista de itens de um texto", description: "", requiresAuth: true },
+      { path: "/functions/extrair-palavras-chave", method: "POST", summary: "Extrai palavras-chave de um texto", description: "", requiresAuth: true },
+      { path: "/functions/base64-to-image", method: "POST", summary: "Converte uma string Base64 em uma imagem", description: "", requiresAuth: true },
+      { path: "/functions/ajustar-texto", method: "POST", summary: "Ajusta o texto para remoção de caracteres especiais", description: "", requiresAuth: true },
+      { path: "/functions/validar-jornada", method: "POST", summary: "Valida uma jornada de trabalho", description: "", requiresAuth: true },
+      { path: "/functions/substituir-variaveis", method: "POST", summary: "Substitui variáveis em um texto", description: "", requiresAuth: true },
+      { path: "/functions/slack-message", method: "POST", summary: "Envia uma mensagem formatada para um canal do Slack", description: "", requiresAuth: true },
+      { path: "/functions/obter-email", method: "POST", summary: "Obtém o conteúdo de um e-mail", description: "", requiresAuth: true },
+  ]},
+  { tag: "GEE", endpoints: [
+      { path: "/gee/auth", method: "GET", summary: "Obtém o token de autenticação do GEE", description: "", requiresAuth: true },
+  ]},
+  { tag: "Gemini", endpoints: [
+      { path: "/gemini/chat", method: "POST", summary: "Envia uma mensagem para o Gemini e obtém uma resposta", description: "", requiresAuth: true },
+  ]},
+  { tag: "GrGroup", endpoints: [
+      { path: "/grgroup/boletos", method: "POST", summary: "Obtém boletos do sistema GrGroup", description: "", requiresAuth: true },
+  ]},
+  { tag: "Gupshup", endpoints: [
+      { path: "/gupshup/v1/send-template", method: "POST", summary: "Envia uma mensagem de template via Gupshup", description: "", requiresAuth: true },
+  ]},
+  { tag: "HC", endpoints: [
+      { path: "/hc/confirmar", method: "GET", summary: "Confirma o agendamento no HC", description: "", requiresAuth: true },
+      { path: "/hc/cancelar", method: "GET", summary: "Cancela o agendamento no HC", description: "", requiresAuth: true },
+  ]},
+  { tag: "Hinova", endpoints: [
+      { path: "/associado/buscar/{cpf}", method: "GET", summary: "Obtém informações do associado Hinova com base no CPF", description: "", requiresAuth: true },
+      { path: "/listar/boleto-associado-veiculo", method: "POST", summary: "Lista boletos de associados e veículos", description: "", requiresAuth: true },
+      { path: "/listar/boleto/periodo", method: "POST", summary: "Lista boletos por período", description: "", requiresAuth: true },
+      { path: "/veiculo/buscar/{cpf}/{id}", method: "GET", summary: "Obtém informações do veículo associado com base no CPF e ID", description: "", requiresAuth: true },
+      { path: "/hinova/boleto/parcela", method: "GET", summary: "Obtém informações de boleto por parcela", description: "", requiresAuth: true },
+      { path: "/hinova/cliente", method: "GET", summary: "Obtém informações do cliente Hinova", description: "", requiresAuth: true },
+      { path: "/hinova/agendamento", method: "GET", summary: "Busca agendamentos do Hinova", description: "", requiresAuth: true },
+      { path: "/hinova/venda", method: "GET", summary: "Busca a situação de uma venda Hinova", description: "", requiresAuth: true },
+  ]},
+  { tag: "Hughes", endpoints: [
+      { path: "/hughes/cliente", method: "POST", summary: "Obtém dados do cliente Hughes", description: "", requiresAuth: true },
+      { path: "/hughes/invoices", method: "GET", summary: "Obtém faturas do cliente Hughes", description: "", requiresAuth: true },
+      { path: "/hughes/gerar-boleto", method: "POST", summary: "Gera um boleto para o cliente Hughes", description: "", requiresAuth: true },
+      { path: "/hughes/buscar-produtos", method: "GET", summary: "Busca produtos do cliente Hughes", description: "", requiresAuth: true },
+      { path: "/hughes/boleto", method: "POST", summary: "Obtém o PDF do boleto Hughes", description: "", requiresAuth: true },
+      { path: "/hughes/produtos", method: "POST", summary: "Obtém dados do cliente Hughes para produtos", description: "", requiresAuth: true },
+      { path: "/hughes/otima", method: "POST", summary: "Busca status de SMS da Hughes", description: "", requiresAuth: true },
+      { path: "/hughes/anexos", method: "POST", summary: "Busca histórico de mensagens e envia anexos para Workfinity", description: "", requiresAuth: true },
+      { path: "/hughes/:caseId/service-order/:serviceOrder/detail", method: "GET", summary: "Tela de edição de detalhes de uma ordem de serviço específica da Hughes", description: "", requiresAuth: true },
+      { path: "/hughes/service-order/update", method: "POST", summary: "Atualização de uma ordem de serviço específica da Hughes", description: "", requiresAuth: true },
+  ]},
+  { tag: "Hugme", endpoints: [
+      { path: "/hugme/{clientId}", method: "GET", summary: "Obtém dados do cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/tickets", method: "GET", summary: "Lista os tickets do cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/ticket/{id}", method: "GET", summary: "Obtém detalhes de um ticket específico do cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/ticket/{id}/detail", method: "GET", summary: "Obtém detalhes completos de um ticket específico do cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/attachment/{attachmentId}", method: "GET", summary: "Obtém um anexo de um cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/evaluation", method: "POST", summary: "Envia uma avaliação para um ticket do cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/moderation", method: "POST", summary: "Envia uma moderação para o cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/message/private", method: "POST", summary: "Envia uma mensagem privada para o cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/message/public", method: "POST", summary: "Envia uma mensagem pública para o cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/{clientId}/companies", method: "GET", summary: "Lista as empresas associadas ao cliente Hugme", description: "", requiresAuth: true },
+      { path: "/hugme/add-client", method: "POST", summary: "Adiciona os dados de um cliente para integração", description: "", requiresAuth: true },
+      { path: "/hugme/remove-client", method: "DELETE", summary: "Remove os dados de um cliente da integração", description: "", requiresAuth: true },
+      { path: "/hugme/list-clients", method: "POST", summary: "Lista todos os clientes cadastrados da integração", description: "", requiresAuth: true },
+  ]},
+  { tag: "Meta", endpoints: [
+      { path: "/meta/webhook", method: "POST", summary: "Recebe eventos de webhook do Meta", description: "Endpoint para receber eventos de webhook do Meta.", requiresAuth: false },
+      { path: "/meta/webhook", method: "GET", summary: "Verifica a assinatura do webhook com o Meta", description: "Endpoint para verificar a assinatura do webhook com o Meta.", requiresAuth: false },
+      { path: "/meta/send-message", method: "POST", summary: "Envia uma mensagem para Meta", description: "Endpoint para enviar uma mensagem para Meta.", requiresAuth: true },
+      { path: "/meta", method: "GET", summary: "Página de autenticação meta", description: "Endpoint para acessar a página de autenticação Meta.", requiresAuth: false },
+  ]},
+  { tag: "Nelson", endpoints: [
+      { path: "/feegow/verificar-telefone", method: "POST", summary: "Verifica telefone do paciente", description: "Endpoint para verificar o telefone de um paciente no sistema Feegow.", requiresAuth: true },
+      { path: "/feegow/listar-telefones", method: "GET", summary: "Lista telefones do paciente", description: "Endpoint para listar os telefones de um paciente específico no sistema Feegow.", requiresAuth: true },
+      { path: "/feegow/listar-horarios", method: "POST", summary: "Lista os horários disponíveis para agendamento no sistema Feegow", description: "", requiresAuth: true },
+  ]},
+  { tag: "Netcanes", endpoints: [
+      { path: "/netcanes/faturas", method: "GET", summary: "Lista as faturas do cliente Netcanes", description: "", requiresAuth: true },
+  ]},
+  { tag: "Nova Promotora", endpoints: [
+      { path: "/nova-promotora/colaboradores", method: "GET", summary: "Obtém a lista de colaboradores da Nova Promotora", description: "", requiresAuth: true },
+  ]},
+  { tag: "Onix5", endpoints: [
+      { path: "/onix5/obter-boleto", method: "POST", summary: "Obtém o boleto do cliente Onix5", description: "", requiresAuth: true },
+      { path: "/onix5/imprimir-nota", method: "POST", summary: "Imprime a nota fiscal do cliente Onix5", description: "", requiresAuth: true },
+  ]},
+  { tag: "OpenAI", endpoints: [
+      { path: "/openai/messages", method: "POST", summary: "Envia uma mensagem para o OpenAI e obtém uma resposta", description: "", requiresAuth: true },
+      { path: "/openai/transcribe-audio", method: "POST", summary: "Transcreve um áudio usando o OpenAI", description: "", requiresAuth: true },
+      { path: "/openai/response-imp", method: "POST", summary: "Obtém uma resposta do OpenAI para uma pergunta de implementação", description: "", requiresAuth: true },
+      { path: "/openai/generate-audio", method: "POST", summary: "Gera um áudio usando o OpenAI", description: "", requiresAuth: true },
+      { path: "/openai/transcribe-audio/v2", method: "POST", summary: "Transcreve um áudio usando o OpenAI (versão 2)", description: "", requiresAuth: true },
+  ]},
+  { tag: "Perbank", endpoints: [
+      { path: "/perbank/cliente/{cnpj}", method: "GET", summary: "Obtém dados do cliente Perbank por CNPJ", description: "", requiresAuth: true },
+      { path: "/perbank/pontos-expirados/{cnpj}", method: "GET", summary: "Obtém pontos expirados do cliente Perbank por CNPJ", description: "", requiresAuth: true },
+      { path: "/perbank/consultar-saldo", method: "POST", summary: "Consulta o saldo do cliente Perbank", description: "", requiresAuth: true },
+  ]},
+  { tag: "RDStation", endpoints: [
+      { path: "/rdstation/casos/webhook", method: "POST", summary: "Recebe webhooks de casos do RD Station", description: "", requiresAuth: true },
+  ]},
+  { tag: "Rappi", endpoints: [
+      { path: "/rappi/v1/auth", method: "POST", summary: "Autentica o usuário e gera um token JWT", description: "", requiresAuth: false },
+      { path: "/rappi/v1/token", method: "POST", summary: "Gera um novo token JWT usando um token de atualização", description: "", requiresAuth: true },
+      { path: "/rappi/v1/create/{formId}", method: "POST", summary: "Cria um novo caso da Rappi no cVortex com base no formId fornecido", description: "", requiresAuth: true },
+      { path: "/rappi/v1/update", method: "POST", summary: "Atualiza um registro existente da Rappi no cVortex", description: "", requiresAuth: true },
+      { path: "/rappi/v2/update", method: "POST", summary: "Atualiza um caso existente da Rappi (versão 2) no cVortex", description: "", requiresAuth: true },
+      { path: "/rappi/v3/update", method: "POST", summary: "Atualiza um caso existente da Rappi (versão 3) no cVortex", description: "", requiresAuth: true },
+      { path: "/rappi/v1/ativacao", method: "GET", summary: "Inicia o processo de ativação para um cliente Rappi", description: "", requiresAuth: false },
+      { path: "/rappi/v1/migracao", method: "GET", summary: "Inicia o processo de migração para um cliente Rappi", description: "", requiresAuth: false },
+      { path: "/rappi/v1/coex", method: "GET", summary: "Inicia o processo de coex para um cliente Rappi", description: "", requiresAuth: false },
+      { path: "/rappi/v1/encerrar", method: "POST", summary: "Encerra o processo de ativação para um cliente Rappi", description: "", requiresAuth: true },
+      { path: "/rappi/v1/migrar", method: "POST", summary: "Encerra o processo de migração para um cliente Rappi", description: "", requiresAuth: true },
+      { path: "/rappi/v1/efetivar", method: "POST", summary: "Encerra o processo de coex para um cliente Rappi", description: "", requiresAuth: true },
+      { path: "/rappi/v1/status/create", method: "POST", summary: "Cria um novo caseStatus Rappi", description: "", requiresAuth: true },
+      { path: "/rappi/v1/status/update", method: "POST", summary: "Atualiza um caseStatus Rappi", description: "", requiresAuth: true },
+      { path: "/rappi/v1/status/delete", method: "POST", summary: "Deleta um caseStatus Rappi", description: "", requiresAuth: true },
+      { path: "/rappi/v1/status/search", method: "POST", summary: "Busca um caseStatus Rappi", description: "", requiresAuth: true },
+  ]},
+  { tag: "Salute", endpoints: [
+      { path: "/salute/webhook", method: "POST", summary: "Recebe webhooks do Salute", description: "", requiresAuth: true },
+  ]},
+  { tag: "Sempre", endpoints: [
+      { path: "/sempre/alerta", method: "GET", summary: "Obtém alertas do sistema Sempre", description: "", requiresAuth: true },
+      { path: "/sempre/show-entity-data", method: "GET", summary: "Exibe dados de uma entidade específica no sistema Sempre", description: "", requiresAuth: true },
+      { path: "/sempre/token", method: "GET", summary: "Obtém o token de acesso do sistema Sempre", description: "", requiresAuth: true },
+  ]},
+  { tag: "SendGrid", endpoints: [
+      { path: "/sendgrid/v1/webhook/{tenantId}", method: "POST", summary: "Recebe eventos do SendGrid", description: "Webhook para receber eventos do SendGrid.", requiresAuth: true },
+  ]},
+  { tag: "Smooch", endpoints: [
+      { path: "/smooch/{appId}", method: "GET", summary: "Retorna os dados de configuração do Smooch para um appId específico", description: "", requiresAuth: true },
+      { path: "/smooch/{appId}", method: "PUT", summary: "Atualiza os dados de configuração do Smooch para um appId específico", description: "", requiresAuth: true },
+  ]},
+  { tag: "Solida Promotora", endpoints: [
+      { path: "/solida-promotora/obter-token", method: "GET", summary: "Obtém o token de acesso do sistema Solida Promotora", description: "", requiresAuth: true },
+      { path: "/solida-promotora/colaboradores", method: "GET", summary: "Obtém a lista de colaboradores da Solida Promotora", description: "", requiresAuth: true },
+  ]},
+  { tag: "Tirrell", endpoints: [
+      { path: "/tirrell/v1/webhook", method: "POST", summary: "Recebe eventos do Tirrell", description: "Webhook para receber eventos do Tirrell.", requiresAuth: true },
+  ]},
+  { tag: "Tommasi", endpoints: [
+      { path: "/tommasi/pacientes/{id}", method: "GET", summary: "Obtém os dados do paciente no sistema Tommasi por ID", description: "", requiresAuth: true },
+      { path: "/tommasi/paciente", method: "POST", summary: "Registra um novo paciente no sistema Tommasi", description: "", requiresAuth: true },
+      { path: "/tommasi/os", method: "POST", summary: "Lista as ordens de serviço do paciente no sistema Tommasi", description: "", requiresAuth: true },
+      { path: "/tommasi/recuperar", method: "POST", summary: "Recupera a senha do paciente no sistema Tommasi", description: "", requiresAuth: true },
+  ]},
+  { tag: "Vakinha", endpoints: [
+      { path: "/vakinha/articles", method: "GET", summary: "Obtém artigos do blog Vakinha", description: "", requiresAuth: true },
+  ]},
+  { tag: "Video", endpoints: [
+      { path: "/video", method: "GET", summary: "Exibe a página de vídeo", description: "", requiresAuth: true },
+  ]},
+  { tag: "WebDental", endpoints: [
+      { path: "/dental/case/createnews", method: "POST", summary: "Cria um novo caso WebDental", description: "", requiresAuth: true },
+      { path: "/dental/create/unidade", method: "POST", summary: "Cria uma nova unidade WebDental", description: "", requiresAuth: true },
+      { path: "/dental/update/unidade", method: "POST", summary: "Atualiza uma unidade WebDental", description: "", requiresAuth: true },
+      { path: "/dental/delete/unidade", method: "POST", summary: "Deleta uma unidade WebDental", description: "", requiresAuth: true },
+      { path: "/dental/search/unidade", method: "POST", summary: "Busca uma unidade WebDental", description: "", requiresAuth: true },
+      { path: "/dental/v1/case/listar-agendamentos", method: "POST", summary: "Lista os agendamentos WebDental", description: "", requiresAuth: true },
+      { path: "/dental/v1/case/listar-propostas", method: "POST", summary: "Lista as propostas WebDental", description: "", requiresAuth: true },
+      { path: "/dental/v1/reprocessar-agendamentos", method: "POST", summary: "Altera os agendamentos com status de ERRO para ATIVO", description: "", requiresAuth: true },
+      { path: "/dental/v1/reprocessar-propostas", method: "POST", summary: "Altera as propostas com status de ERRO para ATIVO", description: "", requiresAuth: true },
+      { path: "/dental/job/all/start", method: "GET", summary: "Inicia todos os jobs no sistema WebDental", description: "", requiresAuth: true },
+      { path: "/dental/job/all/stop", method: "GET", summary: "Para todos os jobs no sistema WebDental", description: "", requiresAuth: true },
+      { path: "/dental/job/list", method: "GET", summary: "Lista todos os jobs no sistema WebDental", description: "", requiresAuth: true },
+      { path: "/dental/case/remover-agendamento", method: "DELETE", summary: "Remove um agendamento WebDental", description: "", requiresAuth: true },
+      { path: "/dental/case/remover-proposta", method: "DELETE", summary: "Remove uma proposta WebDental", description: "", requiresAuth: true },
+      { path: "/dental/v2/reprocessar-agendamentos", method: "POST", summary: "Altera os agendamentos com status de FALHA para AGUARDANDO", description: "", requiresAuth: true },
+      { path: "/dental/v2/reprocessar-propostas", method: "POST", summary: "Altera as propostas com status de FALHA para AGUARDANDO", description: "", requiresAuth: true },
+  ]},
+];
