@@ -13,6 +13,32 @@ export interface ApiGroup {
   endpoints: ApiEndpoint[];
 }
 
+export interface ApiSection {
+  name: string;
+  tags: string[];
+}
+
+export const apiSections: ApiSection[] = [
+  {
+    name: "Funções Gerais",
+    tags: ["DialogFlow", "ElevenLabs", "Evaluate", "Functions", "Gemini", "OpenAI", "Video"],
+  },
+  {
+    name: "Clientes",
+    tags: [
+      "AMEI", "Alcans", "Allcare", "Ancora", "Arcom", "Banco Pan", "Bourboun",
+      "Cassems", "CheckUp", "Cogna", "Costa Brava", "Credz", "GEE", "GrGroup",
+      "HC", "Hinova", "Hughes", "Hugme", "Nelson", "Netcanes", "Nova Promotora",
+      "Onix5", "Perbank", "RDStation", "Rappi", "Salute", "Sempre",
+      "Solida Promotora", "Tirrell", "Tommasi", "Vakinha", "WebDental",
+    ].sort(),
+  },
+  {
+    name: "Para Uso Dev. Interno",
+    tags: ["Flows", "Gupshup", "Meta", "SendGrid", "Smooch"],
+  },
+];
+
 export const apiGroups: ApiGroup[] = [
   { tag: "AMEI", endpoints: [
       { path: "/amei/listar-horarios-ia", method: "POST", summary: "Lista os horários disponíveis AMEI IA", description: "Retorna os horários disponíveis para agendamento. Utilize filtros no body para refinar a busca por data, profissional ou unidade.", whatItDoes: "Lista os horários disponíveis AMEI IA.", motivation: "Otimizar o processo de agendamento, garantindo que os horários apresentados estejam disponíveis e atualizados em tempo real.", requiresAuth: true },
