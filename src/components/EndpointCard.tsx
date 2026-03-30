@@ -103,20 +103,6 @@ export const EndpointCard = ({ endpoint }: { endpoint: ApiEndpoint }) => {
             </pre>
           </div>
 
-          {/* Usage tips */}
-          <div className="bg-tag-bg/50 border border-tag-fg/10 rounded-md p-3">
-            <h5 className="text-xs font-semibold text-tag-fg uppercase tracking-wider mb-1.5">
-              💡 Dica de uso
-            </h5>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              {endpoint.requiresAuth
-                ? "Envie o header Authorization: Bearer <seu_token> em todas as requisições. Certifique-se de que o token esteja válido e atualizado."
-                : "Este endpoint não requer autenticação. Pode ser chamado diretamente sem headers adicionais."}
-              {hasBody && " O corpo da requisição deve ser enviado em formato JSON com o header Content-Type: application/json."}
-              {endpoint.method === "GET" && " Parâmetros podem ser enviados via query string na URL."}
-              {endpoint.method === "DELETE" && " Certifique-se de que o recurso existe antes de tentar removê-lo."}
-            </p>
-          </div>
         </div>
       )}
     </div>
