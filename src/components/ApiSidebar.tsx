@@ -1,5 +1,6 @@
-import { Search, BookOpen } from "lucide-react";
+import { Search } from "lucide-react";
 import type { ApiGroup } from "@/data/apiEndpoints";
+import logo from "@/assets/logo.png";
 
 interface ApiSidebarProps {
   groups: ApiGroup[];
@@ -15,11 +16,9 @@ export const ApiSidebar = ({ groups, activeTag, onSelectTag, searchQuery, onSear
       {/* Header */}
       <div className="p-5 border-b border-border">
         <div className="flex items-center gap-2.5 mb-4">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <BookOpen className="w-4 h-4 text-primary-foreground" />
-          </div>
+          <img src={logo} alt="CustomApps" width={32} height={32} className="rounded-lg" />
           <div>
-            <h1 className="text-sm font-bold text-foreground">Custom-Apps</h1>
+            <h1 className="text-sm font-bold text-foreground">CustomApps</h1>
             <span className="text-[10px] text-muted-foreground font-mono">v1.7.7</span>
           </div>
         </div>
