@@ -3,7 +3,9 @@ import { apiGroups, apiSections } from "@/data/apiEndpoints";
 import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
-import { Shield, FileJson, Menu, X, PanelLeftClose, PanelLeft } from "lucide-react";
+import { Shield, FileJson, Menu, X, PanelLeftClose, PanelLeft, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const Index = () => {
