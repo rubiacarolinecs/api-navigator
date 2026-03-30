@@ -110,8 +110,9 @@ const Index = () => {
               <span className="hidden md:inline">Sair</span>
             </Button>
           </div>
+        </div>
 
-        {/* Hero */}
+
         <div className="border-b border-border bg-card px-6 lg:px-10 py-8">
           <p className="text-muted-foreground text-sm max-w-3xl mb-6 leading-relaxed">
             A plataforma <strong className="text-foreground">CustomApps</strong> nasceu para ir além do core do produto — 
