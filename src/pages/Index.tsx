@@ -52,8 +52,20 @@ const Index = () => {
         {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </button>
 
-      {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-40 lg:relative lg:block ${sidebarOpen ? "block" : "hidden lg:block"}`}>
+      {/* Sidebar - Desktop */}
+      <div className={`hidden lg:block transition-all duration-300 ${sidebarCollapsed ? "w-0 overflow-hidden" : ""}`}>
+        <ApiSidebar
+          groups={apiGroups}
+          sections={apiSections}
+          activeTag={activeTag}
+          onSelectTag={(tag) => { setActiveTag(tag); setSidebarOpen(false); }}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+        />
+      </div>
+
+      {/* Sidebar - Mobile */}
+      <div className={`fixed inset-y-0 left-0 z-40 lg:hidden ${sidebarOpen ? "block" : "hidden"}`}>
         <ApiSidebar
           groups={apiGroups}
           sections={apiSections}
