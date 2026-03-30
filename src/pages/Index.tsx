@@ -3,10 +3,13 @@ import { apiGroups, apiSections } from "@/data/apiEndpoints";
 import { ApiSidebar } from "@/components/ApiSidebar";
 import { EndpointCard } from "@/components/EndpointCard";
 import { MethodBadge } from "@/components/MethodBadge";
-import { Shield, FileJson, Menu, X, PanelLeftClose, PanelLeft } from "lucide-react";
+import { Shield, FileJson, Menu, X, PanelLeftClose, PanelLeft, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const Index = () => {
+  const { user, logout } = useAuth();
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -93,13 +96,24 @@ const Index = () => {
             {sidebarCollapsed ? <PanelLeft className="w-5 h-5" /> : <PanelLeftClose className="w-5 h-5" />}
           </button>
           <img src={logo} alt="CustomApps" width={72} height={72} className="rounded-lg" />
-          <div>
+          <div className="flex-1">
             <h1 className="text-xl lg:text-2xl font-bold text-foreground">CustomApps</h1>
             <span className="text-[11px] text-muted-foreground font-mono">API Documentation</span>
           </div>
+          <div className="flex items-center gap-3 ml-auto">
+            {user && (
+              <span className="hidden md:block text-sm text-muted-foreground">
+                {user.displayName}
+              </span>
+            )}
+            <Button variant="ghost" size="sm" onClick={logout} className="text-muted-foreground hover:text-destructive">
+              <LogOut className="w-4 h-4" />
+              <span className="hidden md:inline">Sair</span>
+            </Button>
+          </div>
         </div>
 
-        {/* Hero */}
+
         <div className="border-b border-border bg-card px-6 lg:px-10 py-8">
           <p className="text-muted-foreground text-sm max-w-3xl mb-6 leading-relaxed">
             A plataforma <strong className="text-foreground">CustomApps</strong> nasceu para ir além do core do produto — 
