@@ -71,7 +71,7 @@ const Index = () => {
       <main className="flex-1 min-w-0">
         {/* Top bar with logo */}
         <div className="border-b border-border bg-card px-6 lg:px-10 py-4 flex items-center gap-4">
-          <img src={logo} alt="CustomApps" width={40} height={40} className="rounded-lg" />
+          <img src={logo} alt="CustomApps" width={56} height={56} className="rounded-lg" />
           <div>
             <h1 className="text-xl lg:text-2xl font-bold text-foreground">CustomApps</h1>
             <span className="text-[11px] text-muted-foreground font-mono">API Documentation</span>
@@ -109,15 +109,26 @@ const Index = () => {
 
         {/* Auth guide */}
         <div className="px-6 lg:px-10 py-6 border-b border-border">
-          <div className="bg-code-bg rounded-lg p-5 max-w-3xl">
-            <h3 className="text-sm font-semibold text-code-fg mb-2">🔐 Autenticação</h3>
-            <p className="text-xs text-code-fg/70 mb-3">
+          <div className="border border-primary/30 bg-primary/5 rounded-lg p-5 max-w-3xl">
+            <h3 className="text-sm font-semibold text-foreground mb-2">🔐 Autenticação</h3>
+            <p className="text-xs text-muted-foreground mb-3">
               A maioria dos endpoints requer autenticação via Bearer Token. Inclua o seguinte header em suas requisições:
             </p>
-            <pre className="text-xs text-code-fg font-mono bg-foreground/5 rounded px-3 py-2">
+            <pre className="text-xs text-foreground font-mono bg-muted rounded px-3 py-2">
 {`Authorization: Bearer <seu_token_aqui>
 Content-Type: application/json`}
             </pre>
+            <div className="mt-4 space-y-2">
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">📌 Integração via plataforma:</strong> Estes endpoints são, em sua maioria, consumidos por meio de integrações com a plataforma <strong>cVortex</strong>. Todos os dados necessários para autenticação e configuração devem ser enviados a partir das <em>integrations</em> criadas dentro da plataforma.
+              </p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">🛠️ Uso externo à plataforma:</strong> Caso precise utilizar estes endpoints fora do ambiente SaaS da cVortex, entre em contato com o Time de CustomApps pelo{" "}
+                <a href="https://cvortex.atlassian.net/servicedesk/customer/portal/12" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80">
+                  catálogo de serviços
+                </a>.
+              </p>
+            </div>
           </div>
         </div>
 
