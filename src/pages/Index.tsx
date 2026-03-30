@@ -71,7 +71,7 @@ const Index = () => {
       <main className="flex-1 min-w-0">
         {/* Top bar with logo */}
         <div className="border-b border-border bg-card px-6 lg:px-10 py-4 flex items-center gap-4">
-          <img src={logo} alt="CustomApps" width={56} height={56} className="rounded-lg" />
+          <img src={logo} alt="CustomApps" width={72} height={72} className="rounded-lg" />
           <div>
             <h1 className="text-xl lg:text-2xl font-bold text-foreground">CustomApps</h1>
             <span className="text-[11px] text-muted-foreground font-mono">API Documentation</span>
